@@ -1,7 +1,5 @@
 ---
-lang: ar
-dir: rtl
-title: "نثر"
+title: "MYaseen208"
 ---
 
-نثر
+MYaseen208

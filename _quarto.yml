@@ -1,25 +1,25 @@
-lang: ar
-dir: rtl
 project:
   type: website
-  output-dir: public   # For https://prupk.com/
+  output-dir: public    # For https://myaseen208.com/misc
 #  output-dir: docs     # For https://prupk.github.io/
 
 website:
-  title: "اُردو"
+  title: "[MYaseen208](https://myaseen208.com/)"
   #logo: 
   #background: success
   search: true
   navbar:
     background: success
-    right:
-      - text: "شاعری"
+    left:
+      - text: Blogs
         menu:
-          - href: Behzad.qmd
-            text: "بہزاد لکھنوی"
-          - href: Naseer.qmd
-            text: "نصیرالدین نصیرؔ"
-      - href: about.qmd
+          - href: blogs.qmd
+            text: "blogs"
+          - href: Shinylive.qmd
+            text: "Shinylive in Quarto"
+      - href: "https://myaseen208.com/urdu/"
+        text: Urdu
+      - href: "https://myaseen208.com/about/"
         text: About
     tools:
       - icon: twitter

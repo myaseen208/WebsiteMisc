@@ -1,0 +1,266 @@
+---
+title: "Blogs"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    toc-location: left
+    number-sections: true
+    number-depth: 3
+    toc-title: Contents
+    smooth-scroll: true
+    html-math-method: katex
+    css: styles.css
+    default-image-extension: svg
+    tbl-cap-location: top
+    fig-cap-location: bottom
+---
+
+```{r, eval = TRUE}
+#| include: FALSE
+#| cache: FALSE
+#| echo: FALSE 
+library(knitr)
+opts_chunk$set(
+                 fig.path   = 'figure/'
+               , cache.path = 'cache/'
+               , cache      = FALSE
+               , dev        = c("svg", "tikz", "pdf", "png")[1]
+               , fig.align  = 'center'
+               , fig.show   = 'asis'
+               , fig.width  = 12
+               , fig.height = 12
+               #, fig.fullwidth = TRUE
+			         , fig.pos    = 'h'
+               , out.width  = '100%' # '1.0\\textwidth'
+               , par        = TRUE
+               , echo       = FALSE
+               , results    = 'hide'
+               , warning    = FALSE
+               , message    = FALSE
+               , comment    = NA
+               )
+options(
+		replace.assign = TRUE
+      , width = 80
+      #, knitr.kable.NA = '\\textbf{--}'
+	)
+knit_hooks$set(par = function(before, options, envir){
+if (before && options$fig.show!='none')
+ par(mar=c(4, 4, 0.1, 0.1), cex.lab = 0.95, cex.axis =0.9, mgp = c(2, 0.7, 0), tcl = -0.3)
+}, crop = hook_pdfcrop)
+
+# Suppressing Error Messages in knitr
+muffleError <- function(x,options) {}
+knit_hooks$set(error = muffleError)
+```
+
+```{r}
+library(knitr)
+read_chunk("BabarAzam.R")
+```
+
+# Test Batting Performance of Babar Azam
+
+```{r}
+#| label: BabarAzamPic
+#| fig.cap: "Babar Azam"
+
+knitr::include_graphics("./images/BabarAzam.jpeg")
+```
+
+{{< video https://youtu.be/7Xaomn9UKog >}}
+
+```{r}
+#| label: Reading-Packages
+```
+
+```{r}
+#| label: Reading-Data
+
+```
+
+```{r}
+#| label: Analysis
+#| fig.show: hide
+```
+
+## Overall Performance
+
+```{r}
+#| label: BATBAOut1
+#| results: asis
+```
+
+**Note:** Last updated on `r Sys.time()` PKT
+
+**Mat:** Number of Matches played
+
+**Inns:** Number of Innings played
+
+**NO:** Number of NOT OUT
+
+**Runs:** Runs scored
+
+**HS:** Highest Runs Scored
+
+**Ave:** Average
+
+**BF:** Balls Faced
+
+**SR:** Strike Rate
+
+**Hundreds:** Number of Hundreds Scored
+
+**Fifties:** Number of Fifties Scored
+
+**Fours:** Number of Fours hitted
+
+**Sixes:** Number of Sixes hitted
+
+## Performance by Years
+
+```{r}
+#| label: BATBAOut2
+#| results: asis
+```
+
+```{r}
+#| label: BATBAOut2Plot1
+#| fig.cap: "Test Batting Performance of Babar Azam over the years"
+BATBAOut2Plot1
+```
+
+## Performance versus different oppositions
+
+```{r}
+#| label: BATBAOut3
+#| results: asis
+
+```
+
+```{r}
+#| label: BATBAOut3Plot1
+#| fig.cap: "Test Batting Performance of Babar Azam over the years by each inning"
+BATBAOut3Plot1
+```
+
+## Performance by Years and Innings
+
+```{r}
+#| label: BATBAOut4
+#| results: asis
+
+```
+
+```{r}
+#| label: BATBAOut4Plot1
+#| fig.cap: "Test Batting Performance of Babar Azam versus different oppositions"
+BATBAOut4Plot1
+```
+
+
+
+```{r}
+library(knitr)
+read_chunk("ViratKohli.R")
+```
+
+# Test Batting Performance of Virat Kohli
+
+```{r}
+#| label: ViratKohliPic
+#| fig.cap: "Virat Kohli"
+knitr::include_graphics("./images/ViratKohli.png")
+```
+
+{{< video https://youtu.be/7Xaomn9UKog >}}
+
+```{r}
+#| label: Reading-Packages
+```
+
+```{r}
+#| label: Reading-Data
+```
+
+```{r}
+#| label: Analysis
+#| fig.show: hide
+```
+
+## Overall Performance
+
+```{r}
+#| label: VKTBAOut1
+#| results: asis
+
+```
+
+**Note:** Last updated on `r Sys.time()` PKT
+
+**Mat:** Number of Matches played
+
+**Inns:** Number of Innings played
+
+**NO:** Number of NOT OUT
+
+**Runs:** Runs scored
+
+**HS:** Highest Runs Scored
+
+**Ave:** Average
+
+**BF:** Balls Faced
+
+**SR:** Strike Rate
+
+**Hundreds:** Number of Hundreds Scored
+
+**Fifties:** Number of Fifties Scored
+
+**Fours:** Number of Fours hitted
+
+**Sixes:** Number of Sixes hitted
+
+## Performance by Years
+
+```{r}
+#| label: VKTBAOut2
+#| results: asis
+
+```
+
+```{r}
+#| label: VKTBAOut2Plot1
+#| fig.cap: "Test Batting Performance of Virat Kohli over the years"
+VKTBAOut2Plot1
+```
+
+## Performance versus different oppositions
+
+```{r}
+#| label: VKTBAOut3
+#| results: asis
+
+```
+
+```{r}
+#| label: VKTBAOut3Plot1
+#| fig.cap: "Test Batting Performance of Virat Kohli over the years by each inning"
+VKTBAOut3Plot1
+```
+
+## Performance by Years and Innings
+
+```{r}
+#| label: VKTBAOut4
+#| results: asis
+
+```
+
+```{r}
+#| label: VKTBAOut4Plot1
+#| fig.cap: "Test Batting Performance of Virat Kohli versus different oppositions"
+VKTBAOut4Plot1
+```

@@ -1,10 +1,7 @@
 ---
-lang: ar
-dir: rtl
-title: "متعلق"
+title: "Miscellaneous"
 ---
 
-متعلق
 
 ```{r}
 1 + 1
