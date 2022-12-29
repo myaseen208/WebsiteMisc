@@ -13,47 +13,16 @@ format:
     css: styles.css
     default-image-extension: svg
     tbl-cap-location: top
+    fig-width: 8
+    fig-height: 6
+    fig-align: center
     fig-cap-location: bottom
+    fig-format: svg
+    out.width: '100%'
+execute:
+  echo: false
+  warning: false
 ---
-
-```{r, eval = TRUE}
-#| include: FALSE
-#| cache: FALSE
-#| echo: FALSE 
-library(knitr)
-opts_chunk$set(
-                 fig.path   = 'figure/'
-               , cache.path = 'cache/'
-               , cache      = FALSE
-               , dev        = c("svg", "tikz", "pdf", "png")[1]
-               , fig.align  = 'center'
-               , fig.show   = 'asis'
-               , fig.width  = 12
-               , fig.height = 12
-               #, fig.fullwidth = TRUE
-			         , fig.pos    = 'h'
-               , out.width  = '100%' # '1.0\\textwidth'
-               , par        = TRUE
-               , echo       = FALSE
-               , results    = 'hide'
-               , warning    = FALSE
-               , message    = FALSE
-               , comment    = NA
-               )
-options(
-		replace.assign = TRUE
-      , width = 80
-      #, knitr.kable.NA = '\\textbf{--}'
-	)
-knit_hooks$set(par = function(before, options, envir){
-if (before && options$fig.show!='none')
- par(mar=c(4, 4, 0.1, 0.1), cex.lab = 0.95, cex.axis =0.9, mgp = c(2, 0.7, 0), tcl = -0.3)
-}, crop = hook_pdfcrop)
-
-# Suppressing Error Messages in knitr
-muffleError <- function(x,options) {}
-knit_hooks$set(error = muffleError)
-```
 
 ```{r}
 library(knitr)
@@ -64,32 +33,34 @@ read_chunk("BabarAzam.R")
 
 ```{r}
 #| label: BabarAzamPic
-#| fig.cap: "Babar Azam"
-
-knitr::include_graphics("./images/BabarAzam.jpeg")
+#| fig-cap: "Babar Azam"
+#| out.width: '100%'
+knitr::include_graphics("./images/BabarAzam.jpg")
 ```
 
 {{< video https://youtu.be/7Xaomn9UKog >}}
 
 ```{r}
 #| label: Reading-Packages
+#| output: false
 ```
 
 ```{r}
 #| label: Reading-Data
-
+#| output: false
 ```
 
 ```{r}
 #| label: Analysis
-#| fig.show: hide
+#| output: false
+#| fig-show: hide
 ```
 
 ## Overall Performance
 
 ```{r}
 #| label: BATBAOut1
-#| results: asis
+#| output: true
 ```
 
 **Note:** Last updated on `r Sys.time()` PKT
@@ -122,7 +93,7 @@ knitr::include_graphics("./images/BabarAzam.jpeg")
 
 ```{r}
 #| label: BATBAOut2
-#| results: asis
+#| output: true
 ```
 
 ```{r}
@@ -135,7 +106,7 @@ BATBAOut2Plot1
 
 ```{r}
 #| label: BATBAOut3
-#| results: asis
+#| output: true
 
 ```
 
@@ -149,8 +120,7 @@ BATBAOut3Plot1
 
 ```{r}
 #| label: BATBAOut4
-#| results: asis
-
+#| output: true
 ```
 
 ```{r}
@@ -170,31 +140,34 @@ read_chunk("ViratKohli.R")
 
 ```{r}
 #| label: ViratKohliPic
-#| fig.cap: "Virat Kohli"
-knitr::include_graphics("./images/ViratKohli.png")
+#| fig-cap: "Virat Kohli"
+#| out.width: '100%'
+knitr::include_graphics("./images/ViratKohli.jpg")
 ```
 
 {{< video https://youtu.be/7Xaomn9UKog >}}
 
 ```{r}
 #| label: Reading-Packages
+#| output: false
 ```
 
 ```{r}
 #| label: Reading-Data
+#| output: false
 ```
 
 ```{r}
 #| label: Analysis
-#| fig.show: hide
+#| output: false
+#| fig-show: hide
 ```
 
 ## Overall Performance
 
 ```{r}
 #| label: VKTBAOut1
-#| results: asis
-
+#| output: true
 ```
 
 **Note:** Last updated on `r Sys.time()` PKT
@@ -227,8 +200,7 @@ knitr::include_graphics("./images/ViratKohli.png")
 
 ```{r}
 #| label: VKTBAOut2
-#| results: asis
-
+#| output: true
 ```
 
 ```{r}
@@ -241,8 +213,7 @@ VKTBAOut2Plot1
 
 ```{r}
 #| label: VKTBAOut3
-#| results: asis
-
+#| output: true
 ```
 
 ```{r}
@@ -255,8 +226,7 @@ VKTBAOut3Plot1
 
 ```{r}
 #| label: VKTBAOut4
-#| results: asis
-
+#| output: true
 ```
 
 ```{r}
