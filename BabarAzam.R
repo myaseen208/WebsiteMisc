@@ -52,6 +52,7 @@ BATBA %>%
 ##----Analysis----
 BATBAOut1 <- 
   BATBA %>% 
+  fsubset(!is.na(Dismissal)) %>% 
   fsummarise(
     Mat      = ceiling(fnobs(Innings)/2)
   , Inns     = fnobs(Innings)
@@ -71,6 +72,7 @@ BATBAOut1
 
 BATBAOut2 <- 
   BATBA %>%
+  fsubset(!is.na(Dismissal)) %>% 
   fmutate(Year = as_factor(year(Date))) %>% 
    fgroup_by(Year) %>% 
    fsummarise(
@@ -115,6 +117,7 @@ BATBAOut2Plot1
 
 BATBAOut3 <- 
   BATBA %>%
+  fsubset(!is.na(Dismissal)) %>% 
   fmutate(Year = as_factor(year(Date))) %>% 
    fgroup_by(Opposition) %>% 
    fsummarise(
@@ -159,6 +162,7 @@ BATBAOut3Plot1
 
 BATBAOut4 <- 
   BATBA %>%
+  fsubset(!is.na(Dismissal)) %>% 
   fmutate(Year = as_factor(year(Date))) %>% 
    fgroup_by(Year, Innings) %>% 
    fsummarise(

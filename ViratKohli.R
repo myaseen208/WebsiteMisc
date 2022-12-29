@@ -52,7 +52,8 @@ VKTBA %>%
 
 ##----Analysis----
 VKTBAOut1 <- 
-  VKTBA %>% 
+  VKTBA %>%
+  fsubset(!is.na(Dismissal)) %>% 
   fsummarise(
     Mat      = ceiling(fnobs(Innings)/2)
   , Inns     = fnobs(Innings)
@@ -72,6 +73,7 @@ VKTBAOut1
 
 VKTBAOut2 <- 
   VKTBA %>%
+  fsubset(!is.na(Dismissal)) %>% 
   fmutate(Year = as_factor(year(Date))) %>% 
    fgroup_by(Year) %>% 
    fsummarise(
@@ -116,6 +118,7 @@ VKTBAOut2Plot1
 
 VKTBAOut3 <- 
   VKTBA %>%
+  fsubset(!is.na(Dismissal)) %>% 
   fmutate(Year = as_factor(year(Date))) %>% 
    fgroup_by(Opposition) %>% 
    fsummarise(
@@ -160,6 +163,7 @@ VKTBAOut3Plot1
 
 VKTBAOut4 <- 
   VKTBA %>%
+  fsubset(!is.na(Dismissal)) %>% 
   fmutate(Year = as_factor(year(Date))) %>% 
    fgroup_by(Year, Innings) %>% 
    fsummarise(
