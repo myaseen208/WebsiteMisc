@@ -14,12 +14,14 @@ website:
       - text: Blogs
         menu:
           - href: blogs.qmd
-            text: "blogs"
+            text: "Blogs"
           - href: Shinylive.qmd
             text: "Shinylive in Quarto"
+          - href: forms.qmd
+            text: "Forms"
       - href: "https://myaseen208.com/urdu/"
         text: Urdu
-      - href: "https://myaseen208.com/about/"
+      - href: about.qmd
         text: About
     tools:
       - icon: twitter

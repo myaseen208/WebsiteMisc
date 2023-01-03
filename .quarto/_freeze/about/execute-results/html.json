@@ -1,8 +1,10 @@
 {
-  "hash": "be56e37638cd10b805d58c25fe081795",
+  "hash": "2d9f469a9f8402390d1db80985e410dc",
   "result": {
-    "markdown": "---\ntitle: \"Miscellaneous\"\n---\n\n::: {.cell}\n\n```{.r .cell-code}\n1 + 1\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] 2\n```\n:::\n:::\n",
-    "supporting": [],
+    "markdown": "---\ntitle: \"MYaseen208 CV\"\nformat: html\n---\n\n```{=html}\n<iframe width = \"780\" height = \"500\" src = \"docs/MYaseen208CV.pdf\" title = \"MYaseen208 CV\"></iframe>\n```\n\n::: {.cell}\n\n```{.r .cell-code}\n1 + 1\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] 2\n```\n:::\n:::\n",
+    "supporting": [
+      "about_files"
+    ],
     "filters": [
       "rmarkdown/pagebreak.lua"
     ],

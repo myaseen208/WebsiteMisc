@@ -36,24 +36,23 @@ pacman::p_load(Packages, character.only = TRUE)
 ##----Reading-Themes----
 
 ##----Reading-Data----
-BATBA <-
+KWTBA <-
   fetch_player_data(
-      playerid  = find_player_id(searchstring = "Babar Azam")$ID
+      playerid  = find_player_id(searchstring = "Kane Williamson")$ID
     , matchtype = c("test", "odi", "t20")[1]
     , activity  = c("batting", "bowling", "fielding")[1]
     ) %>%
   as.data.table()
-# save(BATBA, file = "./data/BATBA.RData", compress = "xz")
-# load("./data/BATBA.RData")
+# save(KWTBA, file = "./data/KWTBA.RData", compress = "xz")
+# load("./data/KWTBA.RData")
 
-BATBA %>% 
+KWTBA %>% 
   head()
 
 ##----Analysis----
-BATBAOut1 <- 
-  BATBA %>% 
+KWTBAOut1 <- 
+  KWTBA %>% 
   fsubset(!is.na(Dismissal)) %>% 
-  fsubset(Date != "2022-12-26") %>% 
   fsummarise(
     Mat      = ceiling(fnobs(Innings)/2)
   , Inns     = fnobs(Innings)
@@ -69,10 +68,10 @@ BATBAOut1 <-
   , Sixes    = fsum(parse_number(X6s))
     )
 
-BATBAOut1
+KWTBAOut1
 
-BATBAOut2 <- 
-  BATBA %>%
+KWTBAOut2 <- 
+  KWTBA %>%
   fsubset(!is.na(Dismissal)) %>% 
   fmutate(Year = as_factor(year(Date))) %>% 
    fgroup_by(Year) %>% 
@@ -91,10 +90,10 @@ BATBAOut2 <-
     , Sixes    = fsum(parse_number(X6s))
       )
 
-BATBAOut2
+KWTBAOut2
 
-BATBAOut2Plot1 <- 
-  ggplot(data = BATBAOut2, mapping = aes(x = Year, y = Ave, fill = Year)) +
+KWTBAOut2Plot1 <- 
+  ggplot(data = KWTBAOut2, mapping = aes(x = Year, y = Ave, fill = Year)) +
   geom_col(width = 0.5) +
   #geom_text(mapping = aes(label = paste0(round(Ave), " (", comma(Runs), " in ", Mat, " matches ", ")")), fontface = "bold", size = 3, vjust = -1.2) +
   geom_text(mapping = aes(label = paste0("Average: ", round(Ave))), fontface = "bold", size = 3, vjust = -3.5) +
@@ -105,7 +104,7 @@ BATBAOut2Plot1 <-
   labs(
     x       = "Year"
   , y       = "Average"
-  , title   = "Test Batting Performance of Babar Azam over the years"
+  , title   = "Test Batting Performance of Kane Williamson over the years"
   , caption = "https://myaseen208.com/"
   ) +
   theme_classic() +
@@ -113,11 +112,11 @@ BATBAOut2Plot1 <-
     legend.position = "none"
   , plot.title      = element_text(hjust = 0.5)
     )
-BATBAOut2Plot1
+KWTBAOut2Plot1
 
 
-BATBAOut3 <- 
-  BATBA %>%
+KWTBAOut3 <- 
+  KWTBA %>%
   fsubset(!is.na(Dismissal)) %>% 
   fmutate(Year = as_factor(year(Date))) %>% 
    fgroup_by(Opposition) %>% 
@@ -136,10 +135,10 @@ BATBAOut3 <-
     , Sixes    = fsum(parse_number(X6s))
       )
 
-BATBAOut3
+KWTBAOut3
 
-BATBAOut3Plot1 <- 
-  ggplot(data = BATBAOut3, mapping = aes(x = reorder(Opposition, -Ave), y = Ave, fill = Opposition)) +
+KWTBAOut3Plot1 <- 
+  ggplot(data = KWTBAOut3, mapping = aes(x = reorder(Opposition, -Ave), y = Ave, fill = Opposition)) +
   geom_col(width = 0.5) +
   #geom_text(mapping = aes(label = paste0(round(Ave), " (", comma(Runs), " in ", Mat, " matches ", ")")), fontface = "bold", size = 3, vjust = -1.2) +
   geom_text(mapping = aes(label = paste0("Average: ", round(Ave))), fontface = "bold", size = 3, vjust = -3.5) +
@@ -151,7 +150,7 @@ BATBAOut3Plot1 <-
   labs(
     x       = "Year"
   , y       = "Average"
-  , title   = "Test Batting Performance of Babar Azam versus different oppositions"
+  , title   = "Test Batting Performance of Kane Williamson versus different oppositions"
   , caption = "https://myaseen208.com/"
   ) +
   theme_classic() +
@@ -159,10 +158,10 @@ BATBAOut3Plot1 <-
     legend.position = "none"
   , plot.title      = element_text(hjust = 0.5)
     )
-BATBAOut3Plot1
+KWTBAOut3Plot1
 
-BATBAOut4 <- 
-  BATBA %>%
+KWTBAOut4 <- 
+  KWTBA %>%
   fsubset(!is.na(Dismissal)) %>% 
   fmutate(Year = as_factor(year(Date))) %>% 
    fgroup_by(Year, Innings) %>% 
@@ -181,10 +180,10 @@ BATBAOut4 <-
     , Sixes    = fsum(parse_number(X6s))
       )
 
-BATBAOut4
+KWTBAOut4
 
-BATBAOut4Plot1 <- 
-  ggplot(data = BATBAOut4, mapping = aes(x = Year, y = Ave, fill = Year)) +
+KWTBAOut4Plot1 <- 
+  ggplot(data = KWTBAOut4, mapping = aes(x = Year, y = Ave, fill = Year)) +
   geom_col(width = 0.5) +
   #geom_text(mapping = aes(label = paste0(round(Ave), " (", comma(Runs), " in ", Mat, " matches ", ")")), fontface = "bold", size = 3, vjust = -1.2) +
   geom_text(mapping = aes(label = paste0("Average: ", round(Ave))), fontface = "bold", size = 2.5, vjust = -3.5) +
@@ -196,7 +195,7 @@ BATBAOut4Plot1 <-
   labs(
     x       = "Year"
   , y       = "Average"
-  , title   = "Test Batting Performance of Babar Azam over the years by each inning"
+  , title   = "Test Batting Performance of Kane Williamson over the years by each inning"
   , caption = "https://myaseen208.com/"
   ) +
   theme_classic() +
@@ -204,15 +203,15 @@ BATBAOut4Plot1 <-
     legend.position = "none"
   , plot.title      = element_text(hjust = 0.5)
     )
-BATBAOut4Plot1
+KWTBAOut4Plot1
 
-##----BATBAOut1----
+##----KWTBAOut1----
 kbl(
-        x           = BATBAOut1
+        x           = KWTBAOut1
       , format      = c("latex", "html", "markdown", "pandoc", "rst")[2]
       , digits      = c(0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0)
       , row.names   = FALSE  
-      , caption     = "Test Batting Performance of Babar Azam"
+      , caption     = "Test Batting Performance of Kane Williamson"
       , format.args = list(decimal.mark = ".", big.mark = ",")
       , escape      = FALSE
       , longtable   = TRUE
@@ -223,13 +222,13 @@ kbl(
   kable_classic(full_width = FALSE, html_font = "Cambria")
   
 
-##----BATBAOut2----
+##----KWTBAOut2----
 kbl(
-        x           = BATBAOut2
+        x           = KWTBAOut2
       , format      = c("latex", "html", "markdown", "pandoc", "rst")[2]
       , digits      = c(0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0)
       , row.names   = FALSE  
-      , caption     = "Test Batting Performance of Babar Azam over the years"
+      , caption     = "Test Batting Performance of Kane Williamson over the years"
       , format.args = list(decimal.mark = ".", big.mark = ",")
       , escape      = FALSE
       , longtable   = TRUE
@@ -239,13 +238,13 @@ kbl(
   row_spec(row = c(0), bold = TRUE, italic = TRUE, align = "l") %>%
   kable_classic(full_width = FALSE, html_font = "Cambria")
 
-##----BATBAOut3----
+##----KWTBAOut3----
 kbl(
-        x           = BATBAOut3
+        x           = KWTBAOut3
       , format      = c("latex", "html", "markdown", "pandoc", "rst")[2]
       , digits      = c(0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0)
       , row.names   = FALSE  
-      , caption     = "Test Batting Performance of Babar Azam versus different oppositions"
+      , caption     = "Test Batting Performance of Kane Williamson versus different oppositions"
       , format.args = list(decimal.mark = ".", big.mark = ",")
       , escape      = FALSE
       , longtable   = TRUE
@@ -257,13 +256,13 @@ kbl(
 
   
 
-##----BATBAOut4----
+##----KWTBAOut4----
 kbl(
-        x           = BATBAOut4
+        x           = KWTBAOut4
       , format      = c("latex", "html", "markdown", "pandoc", "rst")[2]
       , digits      = c(0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0)
       , row.names   = FALSE  
-      , caption     = "Test Batting Performance of Babar Azam over the years by each inning"
+      , caption     = "Test Batting Performance of Kane Williamson over the years by each inning"
       , format.args = list(decimal.mark = ".", big.mark = ",")
       , escape      = FALSE
       , longtable   = TRUE

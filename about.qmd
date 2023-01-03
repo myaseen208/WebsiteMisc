@@ -1,8 +1,11 @@
 ---
-title: "Miscellaneous"
+title: "MYaseen208 CV"
+format: html
 ---
 
 
-```{r}
-1 + 1
+```{=html}
+<iframe width = "780" height = "500" src = "docs/MYaseen208CV.pdf" title = "MYaseen208 CV"></iframe>
 ```
+
+
